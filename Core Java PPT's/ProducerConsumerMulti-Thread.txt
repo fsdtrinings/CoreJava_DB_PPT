@@ -1,0 +1,111 @@
+package threading;
+
+
+class Box
+{
+    boolean flag = false;
+    int data;
+
+        public synchronized void put(int data)
+        {
+            while (flag)
+            {
+
+                try
+                {
+                    wait();
+                }
+                catch (InterruptedException e)
+                {            }
+            }//end while
+
+            this.data = data;
+            System.out.println("put : " + data);
+            flag = true;
+
+            notify();
+        }
+
+        public synchronized void get()
+        {
+                while (!flag)
+                {
+
+                    try
+                    {
+                        wait();
+                    } catch (InterruptedException e)
+                    {
+                    }
+                }
+
+                System.out.println("Got : " + data);
+                flag = false;
+                notify();
+        }
+
+} // end box
+
+class Producer implements Runnable
+{
+        Box b;
+
+        Producer(Box b) {
+        this.b = b;
+        new Thread(this).start();
+        }
+
+        public void run()
+        {
+            int n = 0;
+            while (true)
+            {
+                try
+                {
+                    b.put(++n);
+                    Thread.sleep(300);
+                }
+                catch (InterruptedException e)
+                {
+                   
+                }
+
+            }
+    } // end run
+} // end producer
+
+
+class Consumer implements Runnable {
+
+    Box b;
+
+    Consumer(Box b) {
+        this.b = b;
+        new Thread(this).start();
+    }
+
+    public void run() {
+        int n = 0;
+        while (true) {
+            try {
+                b.get();
+                Thread.sleep(300);
+            } catch (InterruptedException e) {
+            }
+
+        }
+    } // end run
+} // end consumer
+
+public class PCProb {
+    public PCProb() {
+    }
+
+    public static void main(String[] args) {
+        Box box = new Box();
+        Producer p = new Producer(box);
+        Consumer c = new Consumer(box);
+
+    }
+}
+...
