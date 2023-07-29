@@ -1,0 +1,97 @@
+CREATE TABLE `mkj`.`instructor` (
+  `instructorId` INT NOT NULL,
+  `InstructorName` VARCHAR(45) NOT NULL,
+  `MembershipDate` VARCHAR(45) NOT NULL,
+  `emailId` VARCHAR(45) NOT NULL,
+  `Education` VARCHAR(45) NULL,
+  `Country` VARCHAR(45) NULL,
+  PRIMARY KEY (`instructorId`));
+
+===================================================
+CREATE TABLE `mkj`.`technology` (
+  `TechName` INT NOT NULL,
+  `CurrentVersion` VARCHAR(45) NULL,
+  `Vendor` VARCHAR(45) NULL,
+  `Test` VARCHAR(45) NULL,
+  `Relevance` VARCHAR(45) NULL,
+  PRIMARY KEY (`TechName`));
+
+ALTER TABLE `mkj`.`technology` 
+ADD COLUMN `TechnologyName` VARCHAR(45) NOT NULL AFTER `Relevance`,
+CHANGE COLUMN `TechName` `TechID` INT NOT NULL ,
+CHANGE COLUMN `Relevance` `Relevance` VARCHAR(45) NULL ;
+
+======================================================
+CREATE TABLE `mkj`.`course` (
+  `CourseID` INT NOT NULL,
+  `CourseName` VARCHAR(45) NULL,
+  `Duration` VARCHAR(45) NULL,
+  `InstructorID` INT NOT NULL,
+  `TechnologyID` INT NOT NULL,
+  PRIMARY KEY (`CourseID`),
+  INDEX `InstructorName_idx` (`InstructorID` ASC) VISIBLE,
+  INDEX `TechnologyID_idx` (`TechnologyID` ASC) VISIBLE,
+  CONSTRAINT `InstructorName`
+    FOREIGN KEY (`InstructorID`)
+    REFERENCES `mkj`.`instructor` (`instructorId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `TechnologyID`
+    FOREIGN KEY (`TechnologyID`)
+    REFERENCES `mkj`.`technology` (`TechID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+ALTER TABLE `mkj`.`course` 
+ADD COLUMN `Fees` INT NULL AFTER `TechnologyID`;
+============================
+CREATE TABLE `mkj`.`instructortechnologyinfo` (
+  `InstructorID` INT NOT NULL,
+  `TechnologyID` INT NULL,
+  PRIMARY KEY (`InstructorID`),
+  INDEX `technologyId_idx` (`TechnologyID` ASC) VISIBLE,
+  CONSTRAINT `InstructorID`
+    FOREIGN KEY (`InstructorID`)
+    REFERENCES `mkj`.`instructor` (`instructorId`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `technologyId2`
+    FOREIGN KEY (`TechnologyID`)
+    REFERENCES `mkj`.`technology` (`TechID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);
+
+=======================================================
+CREATE TABLE `mkj`.`student` (
+  `StudentID` INT NOT NULL,
+  `StudentName` VARCHAR(45) NOT NULL,
+  `Email` VARCHAR(45) NULL,
+  `DateOfJoining` DATETIME NULL,
+  PRIMARY KEY (`StudentID`));
+
+ALTER TABLE `mkj`.`student` 
+ADD COLUMN `Country` VARCHAR(45) NOT NULL AFTER `DateOfJoining`,
+ADD COLUMN `Education` VARCHAR(45) NOT NULL AFTER `Country`;
+ALTER TABLE `mkj`.`student` 
+CHANGE COLUMN `DateOfJoining` `DateOfJoining` DATE NULL DEFAULT NULL ;
+
+===========================================================
+
+CREATE TABLE `mkj`.`studentcourseenrollment` (
+  `enrollmentNumber` INT NOT NULL,
+  `CourseID` INT NOT NULL,
+  `DateOfEnrollment` DATETIME NULL,
+  `StudentID` INT NULL,
+  PRIMARY KEY (`enrollmentNumber`),
+  INDEX `CourseID_idx` (`CourseID` ASC) VISIBLE,
+  INDEX `StudentID_idx` (`StudentID` ASC) VISIBLE,
+  CONSTRAINT `CourseID`
+    FOREIGN KEY (`CourseID`)
+    REFERENCES `mkj`.`course` (`CourseID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `StudentID`
+    FOREIGN KEY (`StudentID`)
+    REFERENCES `mkj`.`student` (`StudentID`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION);

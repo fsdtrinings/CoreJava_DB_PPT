@@ -1,0 +1,35 @@
+SELECT * FROM mkj.course;
+SELECT * FROM mkj.instructor;
+SELECT * FROM mkj.student;
+SELECT * FROM mkj.studentcourseenrollment;
+select * from mkj.Technology;
+select * from mkj.TechnologyTrainerInfo;
+
+# Get details of the java instructor 
+select * from mkj.instructor where instructorId in (
+select distinct TrainerID from mkj.TechnologyTrainerInfo where TechnologyID in (
+select TechId from mkj.Technology where technologyName like '%Java%'));
+
+select TechnologyName from mkj.Technology where TechId in (
+select TechnologyId from mkj.TechnologyTrainerInfo where trainerId = 11);
+
+# get details of all students who learn Java 
+
+# Revenue earned by each course , use PL-SQL for this 
+
+
+======================  Inner Join ======================== 
+
+
+# problem 
+
+#select i.instructorId,i.InstructorName , c.courseName from mkj.instructor as i where instructorId in (select instructorId from mkj.course as c);
+
+select i.instructorId as id, i.instructorName as Instructor , i.country,i.emailId,c.courseName as course,c.fees
+from mkj.instructor as i
+inner join mkj.course c on c.instructorId = i.instructorId;
+
+
+
+
+

@@ -1,0 +1,76 @@
+INSERT INTO `mkj`.`instructor` (`instructorId`, `InstructorName`, `MembershipDate`, `emailId`, `Education`, `Country`) VALUES ('18', 'Chand', '18-4-2016', 'chand@gmail.com', 'BS(IT)', 'USA');
+=========================================
+INSERT INTO `mkj`.`technology` (`TechID`, `CurrentVersion`, `Vendor`, `Test`, `Relevance`, `TechnologyName`) VALUES ('1', '16', 'Oracle', 'OCPJP', 'high', 'Java');
+INSERT INTO `mkj`.`technology` (`TechID`, `CurrentVersion`, `Vendor`, `Test`, `Relevance`, `TechnologyName`) VALUES ('2', '5', 'VMWare', 'SCD', 'high', 'SpringBoot');
+INSERT INTO `mkj`.`technology` (`TechID`, `CurrentVersion`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('3', '5', 'VMWare', 'high', 'SpringBoot-Microservices');
+INSERT INTO `mkj`.`technology` (`TechID`, `CurrentVersion`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('4', '4', 'RedHat', 'high', 'Hibernate');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('5', 'Oracle', 'high', 'JPA');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('6', 'Salesforce', 'high', 'SDFC');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('7', 'python', 'high', 'Python');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('8', 'Oracle', 'high', 'Java Full Stack');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('9', 'Facebook', 'high', 'React');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('10', 'Facebook', 'high', 'Node');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('11', 'Google', 'high', 'Angular');
+INSERT INTO `mkj`.`technology` (`TechID`, `Vendor`, `Relevance`, `TechnologyName`) VALUES ('12', 'Amazon', 'high', 'AWS-Cloud');
+
+=================================================
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('50', '11', '1');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('51', '11', '2');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('52', '11', '3');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('53', '11', '4');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('54', '11', '5');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('55', '11', '8');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('56', '11', '9');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('57', '11', '10');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('58', '11', '11');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('59', '11', '12');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('60', '12', '1');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('61', '12', '6');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('62', '12', '7');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('63', '12', '8');
+INSERT INTO `mkj`.`technologytrainerinfo` (`TechTrainerRecordID`, `TrainerID`, `TechnologyID`) VALUES ('64', '12', '9');
+===========================================================
+INSERT INTO `mkj`.`course` (`CourseID`, `CourseName`, `Duration`, `InstructorID`, `TechnologyID`) VALUES ('1101', 'CoreJava8', '80', '11', '1');
+INSERT INTO `mkj`.`course` (`CourseID`, `CourseName`, `Duration`, `InstructorID`, `TechnologyID`) VALUES ('1102', 'SpringBoot', '40', '11', '2');
+INSERT INTO `mkj`.`course` (`CourseID`, `CourseName`, `Duration`, `InstructorID`, `TechnologyID`) VALUES ('1103', 'Java8', '82', '12', '1');
+INSERT INTO `mkj`.`course` (`CourseID`, `CourseName`, `Duration`, `InstructorID`, `TechnologyID`) VALUES ('1104', 'React', '40', '12', '9');
+=======================================
+
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('301', 'Shanaya', '10-10-2018', 'India', 'BTech');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('302', 'Ridita', '5-12-2020', 'India', 'BTech');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('303', 'Jenny', '11-11-2015', 'USA', 'BS(IT)');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('304', 'Toshi', '1-1-2016', 'Japan', 'BSC(IT)');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('305', 'Ashmit', '15-3-2014', 'Canada', 'BCA');
+============================================
+
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('301', 'Shanaya', '2018-12-8', 'India', 'BTech');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('302', 'Ridita', '2016-5-5', 'India', 'BTech');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('303', 'Jenny', '2010-5-9', 'USA', 'BS(IT)');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('304', 'Toshi', '2018-3-3', 'Japan', 'BSC(IT)');
+INSERT INTO `mkj`.`student` (`StudentID`, `StudentName`, `DateOfJoining`, `Country`, `Education`) VALUES ('305', 'Ashmit', '2019-1-16', 'Canada', 'BCA');
+
+
+
+=====================================
+
+INSERT INTO `mkj`.`studentcourseenrollment` (`enrollmentNumber`, `CourseID`, `DateOfEnrollment`, `StudentID`) VALUES ('901', '1101', '2020-11-1', '301');
+INSERT INTO `mkj`.`studentcourseenrollment` (`enrollmentNumber`, `CourseID`, `DateOfEnrollment`, `StudentID`) VALUES ('902', '1102', '2020-11-1', '301');
+INSERT INTO `mkj`.`studentcourseenrollment` (`enrollmentNumber`, `CourseID`, `DateOfEnrollment`, `StudentID`) VALUES ('903', '1101', '2019-5-6', '302');
+INSERT INTO `mkj`.`studentcourseenrollment` (`enrollmentNumber`, `CourseID`, `DateOfEnrollment`, `StudentID`) VALUES ('904', '1103', '2019-6-15', '302');
+INSERT INTO `mkj`.`studentcourseenrollment` (`enrollmentNumber`, `CourseID`, `DateOfEnrollment`, `StudentID`) VALUES ('905', '1104', '2020-5-4', '303');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
